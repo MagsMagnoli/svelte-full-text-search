@@ -8,11 +8,27 @@
   let searchQuery = '';
 </script>
 
-<Search bind:query={searchQuery} />
+<style>
+  .search-container {
+    text-align: center;
+    padding: 16px 16px 0 16px;
+  }
+
+  .list-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<div class="search-container">
+  <Search bind:query={searchQuery} />
+</div>
 <Items let:items>
   <Filter {items} {searchQuery} let:filteredItems>
-    <List items={filteredItems} let:item>
-      <Item {item} />
-    </List>
+    <div class="list-container">
+      <List items={filteredItems} let:item>
+        <Item {item} />
+      </List>
+    </div>
   </Filter>
 </Items>
