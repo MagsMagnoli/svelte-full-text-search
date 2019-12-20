@@ -1,12 +1,10 @@
 <script>
-  import { MDCTextField } from '@material/textfield/index';
-  import { onMount } from 'svelte';
-
   export let query;
 </script>
 
-<div class="search">
-  <form>
-    <input bind:value={query} type="search" placeholder="Search" />
-  </form>
-</div>
+<form>
+  <div class="input-field">
+    <i class="material-icons prefix">search</i>
+    <input id="search" bind:value={query} type="text" placeholder="Search" />
+  </div>
+</form>

@@ -9,26 +9,32 @@
 </script>
 
 <style>
-  .search-container {
+  header {
+    margin-top: 56px;
     text-align: center;
-    padding: 16px 16px 0 16px;
-  }
-
-  .list-container {
-    display: flex;
-    justify-content: center;
   }
 </style>
 
-<div class="search-container">
-  <Search bind:query={searchQuery} />
-</div>
-<Items let:items>
-  <Filter {items} {searchQuery} let:filteredItems>
-    <div class="list-container">
-      <List items={filteredItems} let:item>
-        <Item {item} />
-      </List>
+<div class="container">
+  <header>
+    <h1>Full Text Search</h1>
+  </header>
+  <div class="search-container">
+    <div class="row">
+      <div class="col s12 m6 offset-m3 l4 offset-l4">
+        <Search bind:query={searchQuery} />
+      </div>
     </div>
-  </Filter>
-</Items>
+  </div>
+  <Items let:items>
+    <Filter {items} {searchQuery} let:filteredItems>
+      <div class="row">
+        <List items={filteredItems} let:item>
+          <div class="col s12 m6 l4">
+            <Item {item} />
+          </div>
+        </List>
+      </div>
+    </Filter>
+  </Items>
+</div>

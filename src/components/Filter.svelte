@@ -24,7 +24,7 @@
     return (
       item.title.toLowerCase().includes(term) ||
       item.description.toLowerCase().includes(term) ||
-      item.tags.includes(term)
+      item.tags.some(tag => tag.toLowerCase().includes(term))
     );
   }
 </script>

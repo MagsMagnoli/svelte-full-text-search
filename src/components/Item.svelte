@@ -3,17 +3,29 @@
 </script>
 
 <style>
-  .item {
-    border: 1px solid white;
-    width: 300px;
-    height: 300px;
-    margin: 8px;
-    padding: 16px;
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+  }
+
+  .description {
+    flex-grow: 1;
+  }
+
+  .tag:not(:last-child) {
+    margin-right: 8px;
   }
 </style>
 
-<div class="item">
-  <h1>{item.title}</h1>
-  <p>{item.tags.join(', ')}</p>
-  <p>{item.description}</p>
+<div class="card item">
+  <div class="card-content item-content">
+    <span class="card-title">{item.title}</span>
+    <p class="description">{item.description}</p>
+    <div class="tags-container">
+      {#each item.tags as tag}
+        <div class="chip tag">{tag}</div>
+      {/each}
+    </div>
+  </div>
 </div>
