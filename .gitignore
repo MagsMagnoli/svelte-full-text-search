@@ -6,3 +6,9 @@ yarn-error.log
 /__sapper__/
 
 src/data/items.js
+
+.firebase/
+
+public/
+
+.firebaserc
